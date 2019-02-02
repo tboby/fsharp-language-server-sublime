@@ -1,0 +1,20 @@
+{
+  "settings" : {
+        "cwtools" : {
+        "localisation": {
+            "languages" : ""
+        },
+        "errors": {
+            "vanilla": true,
+            "ignore": "",
+            "ignorefiles": ""
+        },
+        "experimental" : false,
+        "experimental_completion": true,
+        "trace": {
+            "server": "messages"
+        }
+    }
+
+  }
+}
