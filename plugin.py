@@ -14,11 +14,7 @@ from LSP.plugin.core.protocol import Request, Point
 
 from LSP.plugin.references import ensure_references_panel
 
-from LSP.plugin.core.clients import client_for_view
-
 from LSP.plugin.core.documents import is_at_word, get_position, get_document_position
-
-from LSP.plugin.core.configurations import is_supported_view
 
 from LSP.plugin.core.workspace import get_project_path
 
@@ -28,48 +24,34 @@ from os.path import dirname
 
 
 default_cwtools_settings = {
-        'localisation': {
-                'languages' : ''
-        },
-        'errors': {
-            'vanilla': 'true',
-            'ignore': '',
-            'ignorefiles': ''
-        },
-        'experimental' : 'false',
-        'experimental_completion': 'true',
-        'trace': {
-            'server': 'messages'
-        }
+
 }
 
-config_name = 'cwtools'
+config_name = 'fsharp'
 
-server_name = 'cwtools'
+server_name = 'fsharp'
 
-def get_cwtools_config():
-    s = sublime.load_settings("LSP-cwtools.sublime-settings").get('settings', default_cwtools_settings)
+def get_fsharp_config():
+    s = sublime.load_settings("LSP-fsharp.sublime-settings").get('settings', default_cwtools_settings)
     return ClientConfig(
 
         name=config_name,
 
         binary_args=[
 
-            dirname(__file__) + '/win-x64/CWTools Server.exe'
+            dirname(__file__) + '/win-x64/FSharpLanguageServer.exe'
 
         ],
 
         tcp_port=None,
 
-        scopes=['source.stellaris'],
+        scopes=['source.fsharp'],
 
         syntaxes=[
 
-           'Packages/StellarisSublime/Stellaris.sublime-syntax',
-
         ],
 
-        languageId='stellaris',
+        languageId='F#',
 
         enabled=True,
 
@@ -83,7 +65,7 @@ def get_cwtools_config():
 class LspCwtoolsPlugin(LanguageHandler):
     def __init__(self):
         self._name = config_name
-        self._config = get_cwtools_config()
+        self._config = get_fsharp_config()
 
     @property
     def name(self) -> str:
@@ -103,7 +85,7 @@ class LspCwtoolsPlugin(LanguageHandler):
 
 
 def register_client(client):
-    print("register loadingBar")     
+    print("register loadingBar")
     client.on_notification(
         "loadingBar",
         lambda params: on_loading_bar(params))

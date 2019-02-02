@@ -1,0 +1,10 @@
+{
+  "settings" : {
+        "cwtools" : {
+        "trace": {
+            "server": "messages"
+        }
+    }
+
+  }
+}

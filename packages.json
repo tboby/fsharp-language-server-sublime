@@ -5,21 +5,11 @@
 
 		{
 			"name": "LSP_cwtools",
-			"details": "https://github.com/tboby/cwtools-sublime",
+			"details": "https://github.com/tboby/fsharp-language-server-sublime",
 			"releases": [
 				{
 					"sublime_text": "*",
 					"tags": true
-				}
-			]
-		},
-		{
-			"name": "StellarisSublime",
-			"details": "https://github.com/Zednosius/StellarisSublime",
-			"releases": [
-				{
-					"sublime_text": "*",
-					"branch": "master"
 				}
 			]
 		}
