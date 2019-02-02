@@ -31,6 +31,8 @@ config_name = 'fsharp'
 
 server_name = 'fsharp'
 
+platform_id = 'linux-x64/FSharpLanguageServer' if sublime.platform() == 'linux' else 'osx.10.11-x64/FSharpLanguageServer' if sublime.platform() == 'osx' else 'win-x64/FSharpLanguageServer.exe'
+
 def get_fsharp_config():
     s = sublime.load_settings("LSP-fsharp.sublime-settings").get('settings', default_cwtools_settings)
     return ClientConfig(
@@ -39,7 +41,7 @@ def get_fsharp_config():
 
         binary_args=[
 
-            dirname(__file__) + '/win-x64/FSharpLanguageServer.exe'
+            dirname(__file__) + '/' + platform_id
 
         ],
 
