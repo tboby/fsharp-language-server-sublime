@@ -4,7 +4,7 @@
 	"packages": [
 
 		{
-			"name": "LSP_cwtools",
+			"name": "LSP_fsharp",
 			"details": "https://github.com/tboby/fsharp-language-server-sublime",
 			"releases": [
 				{
