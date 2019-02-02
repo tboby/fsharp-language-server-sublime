@@ -87,12 +87,16 @@ class LspCwtoolsPlugin(LanguageHandler):
 def register_client(client):
     print("register loadingBar")
     client.on_notification(
-        "loadingBar",
-        lambda params: on_loading_bar(params))
+        "startProgress",
+        lambda params: enable_loading_bar(params))
+    client.on_notification(
+        "endProgress",
+        lambda params: disable_loading_bar(params)
+    )
 
-def on_loading_bar(params):
-    print("loadingBar")
-    if(params["enable"]):
-        sublime.status_message(params["value"])
-    else:
-        sublime.status_message("")
+def enable_loading_bar(params):
+    if(params["title"]):
+        sublime.status_message(params["title"])
+
+def disable_loading_bar(params):
+    sublime.status_message("")
